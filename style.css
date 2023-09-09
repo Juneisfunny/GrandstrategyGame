@@ -1,0 +1,169 @@
+body {
+    margin: 0;
+    background-color: #301c16;
+    font-family: Tahoma;
+    color: white;
+}
+
+.box {
+    background-color: #301c16;
+
+    /*style="width: 100%; height: 100%" */
+
+}
+
+/*input["type:button"]{
+    background-color: black;
+}*/
+canvas {
+    background-color: #087387;
+    position: static;
+}
+
+.CursorDisplay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    margin: 0;
+    background-color: black;
+    color: white;
+}
+
+.TownDisplay {
+    position: absolute;
+    background-color: black;
+    color: white;
+    width: 920px;
+    left: 500px;
+    top: 880px;
+    height: 200px;
+
+}
+
+.Devmenu {
+    position: absolute;
+    background-color: black;
+    color: white;
+    width: 420px;
+    left: 120px;
+    top: 330px;
+    height: 600px;
+
+}
+
+.Grid {
+    /*!! - Bottom Bar - !!*/
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.Grid2 {
+    /*!! - Upgrade Menu - !!*/
+    display: grid;
+    margin-left: 45px;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 5px;
+    grid-row-gap: 20px;
+}
+
+.Box {
+    background-color: black;
+    color: #fff;
+    width: 115px;
+    height: 115px;
+
+}
+
+.Box2 {
+    background-color: black;
+    color: #fff;
+    width: 100px;
+    height: 100px;
+}
+
+.Show {
+    z-index: 1000;
+}
+
+.Hide {
+    z-index: -1000;
+}
+
+.TownUpgrade {
+    position: absolute;
+    background-color: black;
+    color: white;
+    width: 920px;
+    left: 950px;
+    top: 180px;
+    height: 550px;
+}
+
+.TurnButton {
+    position: absolute;
+    width: 200px;
+    left: 1720px;
+    background-color: red;
+    top: 1010px;
+    height: 70px;
+
+}
+
+.TurnButtonProper {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    color: white;
+}
+
+.FlagView {
+    position: absolute;
+    background-color: black;
+    color: white;
+    width: 200px;
+    left: 1720px;
+    height: 100px;
+}
+
+.DiplomacyView {
+    position: absolute;
+    background-color: black;
+    color: white;
+    width: 300px;
+    left: 1600px;
+    top: 180px;
+    height: 550px;
+}
+
+.TopBar {
+    position: absolute;
+    left: 500px;
+    width: 920px;
+    height: 100px;
+}
+
+.TradeView {
+    position: absolute;
+    background-color: black;
+    color: white;
+    width: 800px;
+    left: 560px;
+    top: 180px;
+    height: 550px;
+}
+td{
+    border: 1px dotted white;
+}
+.CurPl {
+    position: absolute;
+    background-color: black;
+    color: white;
+    width: 300px;
+    top: 900px;
+    height: 180px;
+}

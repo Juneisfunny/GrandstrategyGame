@@ -1,0 +1,165 @@
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script src="Init.js"></script>
+
+
+</head>
+
+<body onload="setMyKeyDownListener()">
+    <!--" sonmousemove="updateMousePos(event)" -->
+    <div class="box">
+        <div class="CursorDisplay">
+            <code>X</code>: <span id="x">n/a</span><br>
+            <code>Y</code>: <span id="y">n/a</span>
+            <hr>
+            Gold: <span id="z">n/a</span><br>
+            Turn Count: <span id="turncount">n/a</span><br>
+            <hr>
+            Exotic Resources:<br>
+            Elven Trinkets: <span id="rsc">n/a</span><br>
+        </div>
+        <div class="TownDisplay Hide" id="TownDisplay">
+            <b>
+                <center><span id="ctrl1">n/a</span><br>
+            </b>
+            <hr>
+            <div class="Grid">
+                <div class="Box" onclick="BuildMenu(0,0)" id="Box0"></div>
+                <div class="Box" onclick="BuildMenu(1,0)" id="Box1"></div>
+                <div class="Box" onclick="BuildMenu(2,0)" id="Box2"></div>
+                <div class="Box" onclick="BuildMenu(3,0)" id="Box3"></div>
+                <div class="Box" onclick="BuildMenu(4,0)" id="Box4"></div>
+                <div class="Box" onclick="BuildMenu(5,0)" id="Box5"></div>
+                <div class="Box" onclick="BuildMenu(6,0)" id="Box6"></div>
+                <div class="Box" onclick="BuildMenu(7,0)" id="Box7"></div>
+            </div>
+            </center>
+        </div>
+
+        <div class="Devmenu Hide">
+            <b>
+                <center>Devmenu<br>
+                    <hr><br>
+            </b>
+            Selected Player: <span id="SlPlyr"></span><br>
+            Current Player: <span id="CrPlyr"></span><br>
+            <b>
+                Resc<br>
+                <hr><br>
+            </b>
+            Gold: <span id="CrPlyrGold"></span><br>
+
+        </div>
+
+
+        <div class="TurnButton">
+            <input type="button" class="TurnButtonProper" onclick="TurnEnd()" value="End Turn">
+        </div>
+
+
+        <div class="TownUpgrade Hide" id="TownUpgrade">
+            <b>
+                <center><span id="Upgr1">n/a</span>
+            </b>
+            <input type="button" onclick="closeTownUpgrade()" value="[X]"><br>
+            <hr>
+            <div class="Grid2">
+                <div class="Box2" id="Box0-3" onclick="BuildUpgrade(0,3)"></div>
+                <div class="Box2" id="Box1-3" onclick="BuildUpgrade(1,3)"></div>
+                <div class="Box2" id="Box2-3" onclick="BuildUpgrade(2,3)"></div>
+                <div class="Box2" id="Box3-3" onclick="BuildUpgrade(3,3)"></div>
+                <div class="Box2" id="Box4-3" onclick="BuildUpgrade(4,3)"></div>
+                <div class="Box2" id="Box5-3" onclick="BuildUpgrade(5,3)"></div>
+
+                <div class="Box2" id="Box0-2" onclick="BuildUpgrade(0,2)"></div>
+                <div class="Box2" id="Box1-2" onclick="BuildUpgrade(1,2)"></div>
+                <div class="Box2" id="Box2-2" onclick="BuildUpgrade(2,2)"></div>
+                <div class="Box2" id="Box3-2" onclick="BuildUpgrade(3,2)"></div>
+                <div class="Box2" id="Box4-2" onclick="BuildUpgrade(4,2)"></div>
+                <div class="Box2" id="Box5-2" onclick="BuildUpgrade(5,2)"></div>
+
+                <div class="Box2" id="Box0-1" onclick="BuildUpgrade(0,1)"></div>
+                <div class="Box2" id="Box1-1" onclick="BuildUpgrade(1,1)"></div>
+                <div class="Box2" id="Box2-1" onclick="BuildUpgrade(2,1)"></div>
+                <div class="Box2" id="Box3-1" onclick="BuildUpgrade(3,1)"></div>
+                <div class="Box2" id="Box4-1" onclick="BuildUpgrade(4,1)"></div>
+                <div class="Box2" id="Box5-1" onclick="BuildUpgrade(5,1)"></div>
+
+                <div class="Box2" id="Box0-0" onclick="BuildUpgrade(0,0)"></div>
+                <div class="Box2" id="Box1-0" onclick="BuildUpgrade(1,0)"></div>
+                <div class="Box2" id="Box2-0" onclick="BuildUpgrade(2,0)"></div>
+                <div class="Box2" id="Box3-0" onclick="BuildUpgrade(3,0)"></div>
+                <div class="Box2" id="Box4-0" onclick="BuildUpgrade(4,0)"></div>
+                <div class="Box2" id="Box5-0" onclick="BuildUpgrade(5,0)"></div>
+                <form>
+                    <input type="button" value="MainSheet" onclick="BuildMenu('n/a',0)">
+                    <input type="button" value="EconSheet" onclick="BuildMenu('n/a',1)">
+                    <input type="button" value="MilSheet" onclick="BuildMenu('n/a',1)">
+                </form>
+            </div>
+            </center>
+        </div>
+        <div class="FlagView">
+            <img src="img/flag_small/default.png" onclick="DiplomacyShow()" id="FlagSmall"><br>
+            Relations: <span id="rels">n/a</span><br>
+            Controlled by: <span id="ctrl">n/a</span><br>
+        </div>
+
+        <div class="DiplomacyView Hide" id="DiplomacyView">
+            <center>
+                <br><img src="img/flag_small/default.png" id="Faction_Portrait"><br><br>
+                <hr>
+                <b><span id="FactionIdentifier">Awa:</span></b><br>
+                <br><span id="FactionDialogue">Lorem Ipsum - Dialogue</span><br><br>
+                <hr><br>
+
+                <input type="button" value="Improve Relations" onclick="DiplomacyChoice(0)"><br>
+                <input type="button" value="Worsen Relations" onclick="DiplomacyChoice(1)"><br>
+                <input type="button" value="Confederate" onclick="DiplomacyChoice(2)"><br>
+                <input type="button" value="Trade" onclick="DiplomacyChoice(3)"><br>
+            </center>
+        </div>
+
+        <div id="TradeView" class="TradeView Hide">
+            <table>
+                <tr>
+                    <td>
+                        <form id="DiplomacyGiving">
+
+
+                        </form>
+                    </td>
+                    <td>Giving: 
+                        <table><form id="DiplomacyGivingWP">
+
+
+                        </form></table>
+                    </td>
+                    <td>Recieving:</td>
+                    <td>
+                        <form id="DiplomacyTaking">
+
+
+                        </form>
+                    </td>
+                </tr>
+            </table>
+
+
+
+        </div>
+
+        <div class="CurPl"><b>You are playing as:</b><br>
+        <img src="img/flag_small/default.png"></div>
+        <canvas id="canvas" width="1920" height="1080"></canvas>
+    </div>
+</body>
+
+<script src="EventController.js"></script>
+<script src="Rendering.js"></script>
+<script src="RenderingSub.js"></script>
+<script src="AnimationPhysics.js"></script>
+<script src="BuildingController.js"></script>
+<script src="TurnCycle.js"></script>
+<script src="Diplomacy.js"></script>
+<script src="TradeRenderer.js"></script>
