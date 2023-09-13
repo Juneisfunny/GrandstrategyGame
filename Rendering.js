@@ -33,7 +33,7 @@ function clickAnalysis(event) {
     updateDisplay();
 }
 
-var GameTicks=1
+var GameTicks = 1
 var TickGoal = 50;
 
 function Gameclock() {
@@ -42,10 +42,10 @@ function Gameclock() {
 
 
     GameTicks++
-    if(GameTicks==TickGoal){ // Drawing Clouds
-        console.log("sending a cloud at "+GameTicks)
-        AddSceneObject("Cloud",cameraY+(Math.floor(Math.random() * 1080)),GameTicks+80+cameraX)
-        TickGoal=GameTicks+(Math.floor(Math.random() * 900)+200)
+    if (GameTicks == TickGoal) { // Drawing Clouds
+        console.log("sending a cloud at " + GameTicks)
+        AddSceneObject("Cloud", cameraY + (Math.floor(Math.random() * 1080)), GameTicks + 80 + cameraX)
+        TickGoal = GameTicks + (Math.floor(Math.random() * 900) + 200)
     }
 
     //AnimationTicks()
@@ -82,6 +82,7 @@ function Gameclock() {
         }
         ctx.fillRect(TerrList[index].posX + cameraX, TerrList[index].posY + cameraY, TerrList[index].sizeX, TerrList[index].sizeY);
     }
+
 
     function DrawGrid(value, index) {
 

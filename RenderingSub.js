@@ -503,7 +503,7 @@ function DrawGameWorldObjects() {
       }
 
 
-      if (CheckForBuilding(9, 18) == true) {
+      /*if (CheckForBuilding(9, 18) == true) {
             DrawSub("Waslond1", 90, 180, 0.4)
             DrawSub("Waslond2", 70, 260, 0.4)
       }
@@ -514,13 +514,13 @@ function DrawGameWorldObjects() {
 
       if (CheckForBuilding(2, 17) == true) {
             DrawSub("TreeOfLife", 100, 130, 0.4)
-      }
+      }*/
 
       for (i = 0; i != TerrList.length; i++) {
             DrawCities(0, i)
       }
 
-
+      /* 
       if (CheckForBuilding(20, 41) == true) {
             DrawSub("Setva", 275, 550, 0.4)
       }
@@ -530,7 +530,7 @@ function DrawGameWorldObjects() {
 
       //DrawCities(0,6)
       //DrawCities(0,3)
-      //TerrList.forEach(DrawCities)
+      //TerrList.forEach(DrawCities)*/
 }
 
 function DrawWaves() {
@@ -587,59 +587,59 @@ function DrawShoreWaves() {
       //ctx.fillRect(Temp.posX + cameraX, Temp.posY + cameraY, Temp.sizeX, Temp.sizeY);
 }
 
-function SceneObj(itemType, Location, startTime){ // Scene object strcture
+function SceneObj(itemType, Location, startTime) { // Scene object strcture
       this.itemType = itemType;
       this.Location = Location;
       this.startTime = startTime;
       this.exists = true;
 }
 
-var SceneObjects=[] // Array with all the scene objects
+var SceneObjects = [] // Array with all the scene objects
 
-function AddSceneObject(itemType, Location, startTime){ //Add new scene object to the array
-      FoundEmpty=false;
-      for(i=0;i!=SceneObjects.length;i++){
-            if(SceneObjects[i].exists==false){
-                  FoundEmpty=i;
+function AddSceneObject(itemType, Location, startTime) { //Add new scene object to the array
+      FoundEmpty = false;
+      for (i = 0; i != SceneObjects.length; i++) {
+            if (SceneObjects[i].exists == false) {
+                  FoundEmpty = i;
             }
       }
-      if(FoundEmpty==false){
-            SceneObjects[SceneObjects.length]=new SceneObj(itemType, Location, startTime) // Adding new item to the list
-      }
-      else{
-            SceneObjects[FoundEmpty]=new SceneObj(itemType, Location, startTime) //Overwriting existing items
+      if (FoundEmpty == false) {
+            SceneObjects[SceneObjects.length] = new SceneObj(itemType, Location, startTime) // Adding new item to the list
+      } else {
+            SceneObjects[FoundEmpty] = new SceneObj(itemType, Location, startTime) //Overwriting existing items
       }
 
-      
+
 }
-function DrawSceneObjects(){
-      function DrawSceneObjectProper(arg){
+
+function DrawSceneObjects() {
+      function DrawSceneObjectProper(arg) {
             temp = SceneObjects[arg]
-            if(temp.exists==true){ //Check if the item exists
+            if (temp.exists == true) { //Check if the item exists
 
-                  objX = GameTicks-temp.startTime+cameraX;
-                  objY = temp.Location+cameraY;
+                  objX = GameTicks - temp.startTime + cameraX;
+                  objY = temp.Location + cameraY;
 
-                  switch(temp.itemType){
-                        case("Cloud"):
+                  switch (temp.itemType) {
+                        case ("Cloud"):
                               ctx.fillStyle = "#ffffff"
-                              ctx.fillRect(objX,objY, 90, 40); 
+                              ctx.fillRect(objX, objY, 90, 40);
                               ctx.fillStyle = "#d9d9d9"
-                              ctx.fillRect(objX,objY+30, 90, 10); 
-                        break
+                              ctx.fillRect(objX, objY + 30, 90, 10);
+                              break
                   }
 
-                  if(GameTicks-temp.startTime>(-cameraX+1920)){ //is out of frame
-                        temp.exists=false //deletes the item  
+                  if (GameTicks - temp.startTime > (-cameraX + 1920)) { //is out of frame
+                        temp.exists = false //deletes the item  
                   }
             }
 
       }
 
 
-      for(i=0;i!=SceneObjects.length;i++){
+      for (i = 0; i != SceneObjects.length; i++) {
             DrawSceneObjectProper(i)
       }
-      
+
 
 }
